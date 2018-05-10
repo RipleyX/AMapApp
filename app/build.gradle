@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'key0'
+            keyPassword 'gwp2364176592'
+            storeFile file('/home/ripley/Documents/keystore.jks')
+            storePassword 'gwp2364176592'
+        }
+    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.ripley.amapapp"
@@ -14,8 +22,12 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
         }
     }
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
